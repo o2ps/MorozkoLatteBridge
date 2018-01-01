@@ -1,0 +1,8 @@
+extensions:
+	morozko: Oops\Morozko\DI\MorozkoExtension
+	morozko.latte: Oops\MorozkoLatteBridge\DI\MorozkoLatteBridgeExtension
+	console: Kdyby\Console\DI\ConsoleExtension
+
+
+morozko.latte:
+	directory: %appDir%/fixtures

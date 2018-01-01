@@ -1,0 +1,42 @@
+{
+	"name": "oops/morozko-latte-bridge",
+	"description": "Latte bridge for cache warmup library for Nette Framework.",
+	"keywords": ["nette", "latte", "cache", "warmup"],
+	"type": "library",
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Jiří Pudil",
+			"email": "me@jiripudil.cz",
+			"homepage": "https://jiripudil.cz"
+		}
+	],
+	"support": {
+		"email": "me@jiripudil.cz",
+		"issues": "https://github.com/o2ps/MorozkoLatteBridge/issues"
+	},
+	"require": {
+		"php": ">= 7.1.0",
+		"latte/latte": "^2.4",
+		"nette/application": "^2.4",
+		"nette/di": "^2.4.10",
+		"nette/finder": "^2.4",
+		"oops/morozko": "dev-master"
+	},
+	"require-dev": {
+		"kdyby/console": "^2.7.0",
+		"mockery/mockery": "^1.0.0",
+		"nette/bootstrap": "^2.4.0",
+		"nette/tester": "^2.0.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Oops\\MorozkoLatteBridge\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"OopsTests\\MorozkoLatteBridge\\": "tests/MorozkoLatteBridge"
+		}
+	}
+}
