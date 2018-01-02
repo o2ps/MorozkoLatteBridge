@@ -21,7 +21,7 @@
 		"nette/application": "^2.4",
 		"nette/di": "^2.4.10",
 		"nette/finder": "^2.4",
-		"oops/morozko": "dev-master"
+		"oops/morozko": "^1.0.0@alpha"
 	},
 	"require-dev": {
 		"kdyby/console": "^2.7.0",
