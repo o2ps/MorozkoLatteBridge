@@ -6,3 +6,7 @@ extensions:
 
 morozko.latte:
 	directory: %appDir%/fixtures
+
+
+application:
+	scanDirs: false
