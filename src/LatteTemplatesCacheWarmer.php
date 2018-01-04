@@ -29,7 +29,7 @@ final class LatteTemplatesCacheWarmer implements CacheWarmer
 	public function __construct(string $directory, ILatteFactory $latteFactory)
 	{
 		$this->directory = $directory;
-		$this->latte = $latteFactory->create();
+		$this->latte = $this->createLatte($latteFactory);
 	}
 
 
@@ -56,6 +56,26 @@ final class LatteTemplatesCacheWarmer implements CacheWarmer
 			}, $exceptions);
 			throw new CacheWarmupFailedException(\implode("\n", $exceptionMessages));
 		}
+	}
+
+
+	private function createLatte(ILatteFactory $latteFactory): Engine
+	{
+		$latte = $latteFactory->create();
+
+		if (\class_exists(\Nette\Bridges\CacheLatte\CacheMacro::class)) {
+			$latte->getCompiler()->addMacro('cache', new \Nette\Bridges\CacheLatte\CacheMacro());
+		}
+
+		if (\class_exists(\Nette\Bridges\ApplicationLatte\UIMacros::class)) {
+			\Nette\Bridges\ApplicationLatte\UIMacros::install($latte->getCompiler());
+		}
+
+		if (\class_exists(\Nette\Bridges\FormsLatte\FormMacros::class)) {
+			\Nette\Bridges\FormsLatte\FormMacros::install($latte->getCompiler());
+		}
+
+		return $latte;
 	}
 
 }

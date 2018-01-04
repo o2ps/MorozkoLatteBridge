@@ -24,6 +24,10 @@ final class LatteTemplatesCacheWarmerTest extends TestCase
 	public function testCacheWarmer(): void
 	{
 		$latte = \Mockery::mock(Latte\Engine::class);
+		$latte->shouldReceive('getCompiler')
+			->zeroOrMoreTimes()
+			->andReturn(new Latte\Compiler());
+
 		$latte->shouldReceive('warmupCache')
 			->with(__DIR__ . '/fixtures/successful.latte')
 			->once();
